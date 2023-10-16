@@ -1,4 +1,4 @@
-name: Automatic Benben Posting
+name: 测试洛谷发送犇犇
 
 on:
   schedule:
@@ -8,7 +8,7 @@ jobs:
   post-benben:
     runs-on: ubuntu-latest
     steps:
-    - name: Send Benben POST Request
+    - name: 发送洛谷犇犇
       run: |
         MESSAGE="test
 
