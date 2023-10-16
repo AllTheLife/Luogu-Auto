@@ -15,5 +15,10 @@ jobs:
         run: pip install requests
       - name: 运行签到代码
         run: python .\luogu_auto_punch.py $Env:COOKIE
+      - name: 发送成功邮件
+        run: python .\luogu_punch_successfully_email.py $Env:KEY $Env:MY_EMAIL $Env:TO_MAIL
         env:
           COOKIE: ${{ secrets.COOKIE }}
+          KEY: ${{ secrets.EMAIL_KEY }}
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
