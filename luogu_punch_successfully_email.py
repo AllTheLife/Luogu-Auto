@@ -5,11 +5,11 @@ from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
 
-def email(cookie):
+def email(cookie, my_email, want_to_email):
     host_server = 'smtp.163.com'
-    sender_163 = 'redefinition2607@163.com'
+    sender_163 = my_email
     pwd = cookie
-    receiver = ['redefinition0726@163.com']
+    receiver = [want_to_email]
     mail_title = '洛谷自动打卡成功'
     mail_content = "洛谷自动打卡成功！\nby GitHub Action"
     msg = MIMEMultipart()
