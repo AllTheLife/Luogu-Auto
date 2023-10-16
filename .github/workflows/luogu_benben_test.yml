@@ -1,0 +1,22 @@
+name: Automatic Benben Posting
+
+on:
+  schedule:
+    - cron: '6 2 * * *' # Scheduled for 1:58 UTC which is 9:58 Beijing time
+
+jobs:
+  post-benben:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Benben POST Request
+      run: |
+        MESSAGE="test
+
+        curl -X POST "https://www.luogu.com.cn/api/feed/postBenben" \
+             -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+             -H "Cookie: __client_id=${{ secrets.CLIENT_ID }}; login_referer=https%3A%2F%2Fwww.luogu.com.cn%2F; _uid=${{ secrets.UID }}" \
+             -H "X-Csrf-Token: ${{ secrets.X_CSRF_TOKEN }}" \
+             -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.31" \
+             -H "X-Requested-With: XMLHttpRequest" \
+             -H "Referer: https://www.luogu.com.cn/" \
+             --data "content=$MESSAGE"
