@@ -1,0 +1,17 @@
+name: 洛谷自动打卡
+
+on:
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: 安装库文件
+        run: pip install requests
+      - name: 运行签到代码
+        run: python .\luogu_auto_punch.py $Env:COOKIE
+        env:
+          COOKIE: ${{ secrets.COOKIE }}
