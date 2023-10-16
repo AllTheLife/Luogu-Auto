@@ -2,7 +2,7 @@ name: 运行PowerShell脚本
 
 on:
   schedule:
-    - cron: '55 2 * * *'  # 北京时间10:55对应的UTC时间
+    - cron: '52 2 * * *'  # 北京时间10:55对应的UTC时间
 
 jobs:
   run_script:
