@@ -2,7 +2,7 @@ name: 测试洛谷发送犇犇
 
 on:
   schedule:
-    - cron: '20 2 * * *' # Scheduled for 1:58 UTC which is 9:58 Beijing time
+    - cron: '27 2 * * *' # Scheduled for 1:58 UTC which is 9:58 Beijing time
 
 jobs:
   post-benben:
@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: 发送洛谷犇犇
       run: |
-        MESSAGE="test
+        MESSAGE="test"
 
         curl -X POST "https://www.luogu.com.cn/api/feed/postBenben" \
              -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
