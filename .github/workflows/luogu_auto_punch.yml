@@ -2,7 +2,7 @@ name: 洛谷自动打卡
 
 on:
   schedule:
-    - cron: "23 3 * * *"
+    - cron: "0 18 * * *"
   workflow_dispatch:
 
 jobs:
