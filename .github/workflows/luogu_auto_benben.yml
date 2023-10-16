@@ -1,0 +1,19 @@
+name: 洛谷自动发犇
+
+on:
+  schedule:
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: 下载Python文件
+        run: Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-Punch/luogu_punch.py -OutFile luogu_auto_punch.py
+      - name: 安装库文件
+        run: pip install requests
+      - name: 运行发犇代码
+        run: python .\luogu_auto_punch.py $Env:COOKIE
+        env:
+          COOKIE: ${{ secrets.COOKIE }}
