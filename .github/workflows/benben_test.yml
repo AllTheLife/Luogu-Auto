@@ -44,4 +44,4 @@ jobs:
             "x-requested-with"="XMLHttpRequest"
           } `
           -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
-          -Body "content=test"
+          -Body "content=Luogu YYDS~~~"
