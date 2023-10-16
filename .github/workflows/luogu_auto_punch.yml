@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+      - name: 下载Python文件
+        run: Invoke-WebRequest https://raw.githubusercontent.com/xcx0902/python/main/luogu-auto-punch.py -OutFile luogu_auto_punch.py
       - name: 安装库文件
         run: pip install requests
       - name: 运行签到代码
