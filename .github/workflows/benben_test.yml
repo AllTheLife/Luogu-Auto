@@ -1,0 +1,47 @@
+name: 运行PowerShell脚本
+
+on:
+  schedule:
+    - cron: '55 2 * * *'  # 北京时间10:55对应的UTC时间
+
+jobs:
+  run_script:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run PowerShell Script
+        env:  # 将secrets作为环境变量设置
+          LUOGU_COOKIE: ${{ secrets.LUOGU_COOKIE }}
+          LUOGU_UID: ${{ secrets.LUOGU_UID }}
+          LUOGU_X_CSRF_TOKEN: ${{ secrets.LUOGU_X_CSRF_TOKEN }}
+        run: |
+          $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+          $session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46"
+          $session.Cookies.Add((New-Object System.Net.Cookie("__client_id", "${env:LUOGU_COOKIE}", "/", ".luogu.com.cn")))
+          $session.Cookies.Add((New-Object System.Net.Cookie("_uid", "${env:LUOGU_UID}", "/", ".luogu.com.cn")))
+          Invoke-WebRequest -UseBasicParsing -Uri "https://www.luogu.com.cn/api/feed/postBenben" `
+          -Method "POST" `
+          -WebSession $session `
+          -Headers @{
+            "authority"="www.luogu.com.cn"
+            "method"="POST"
+            "path"="/api/feed/postBenben"
+            "scheme"="https"
+            "accept"="*/*"
+            "accept-encoding"="gzip, deflate, br"
+            "accept-language"="zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6"
+            "origin"="https://www.luogu.com.cn"
+            "referer"="https://www.luogu.com.cn/"
+            "sec-ch-ua"="`"Chromium`";v=`"118`", `"Microsoft Edge`";v=`"118`", `"Not=A?Brand`";v=`"99`""
+            "sec-ch-ua-mobile"="?0"
+            "sec-ch-ua-platform"="`"Windows`""
+            "sec-fetch-dest"="empty"
+            "sec-fetch-mode"="cors"
+            "sec-fetch-site"="same-origin"
+            "x-csrf-token"="${env:LUOGU_X_CSRF_TOKEN}"
+            "x-requested-with"="XMLHttpRequest"
+          } `
+          -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
+          -Body "content=test"
