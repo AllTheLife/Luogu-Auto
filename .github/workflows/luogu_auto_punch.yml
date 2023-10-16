@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: 下载Python文件
         run: Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-Punch/luogu_punch.py -OutFile luogu_auto_punch.py
+             Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-Punch-Email/luogu_punch_successfully_email.py -OutFile luogu_punch_successfully_email.py
       - name: 安装库文件
         run: pip install requests
       - name: 运行签到代码
