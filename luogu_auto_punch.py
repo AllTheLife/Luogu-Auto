@@ -17,15 +17,4 @@ def punch(cookie):
     }).text
 
 if __name__ == "__main__":
-    print(f"Script Name: {sys.argv[0]}")
-    for i in range(1, len(sys.argv)):
-        response = punch(sys.argv[i])
-        print(f"No. {i}: {response}")
-        try:
-            tmp = json.loads(response)
-            if tmp['code'] == 200:
-                print('code =', tmp['code'], 'message =', tmp['more']['html'])
-            else:
-                print('code =', tmp['code'], 'message =', tmp['message'])
-        except Exception as err:
-            print(f"<{err}>")
+    punch(sys.argv[1])
