@@ -1,4 +1,5 @@
 import sys
+import pytz
 import datetime
 from smtplib import SMTP_SSL
 from email.mime.text import MIMEText
@@ -19,7 +20,8 @@ def email(key, my_email, to_email):
     mail_tail = """</h4>
 </div>
 """
-    mail_content = mail_head + str(datetime.datetime.today()) + mail_tail
+    mail_content = mail_head + \
+        str(datetime.datetime.now(pytz.timezone('Asia/Shanghai'))) + mail_tail
     msg = MIMEMultipart()
     msg["Subject"] = Header(mail_title, 'utf-8')
     msg["From"] = sender_163
