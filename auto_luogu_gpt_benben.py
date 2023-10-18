@@ -57,4 +57,4 @@ if __name__ == "__main__":
     ques = "Write an inspirational sentence"
     cookie = sys.argv[1]
     msg = gpt35(ques)
-    print(postBenben(cookie, msg))
+    postBenben(cookie, msg)
