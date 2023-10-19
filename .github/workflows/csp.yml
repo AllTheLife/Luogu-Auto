@@ -14,7 +14,6 @@ jobs:
       - name: 安装库文件
         run: pip install requests
       - name: 运行AK CSP
-        run: python .\all_classmate_csp_ak.py $Env:COOKIE $Env:GPT_KEY
+        run: python .\all_classmate_csp_ak.py $Env:COOKIE
         env:
           COOKIE: ${{ secrets.COOKIE }}
-          GPT_KEY: ${{ secrets.GPT_KEY}}
