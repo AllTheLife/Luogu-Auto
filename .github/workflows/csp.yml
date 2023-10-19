@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: 下载AK CSP Python文件
-        run: Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-GPT-Benben/auto_luogu_gpt_benben.py -OutFile auto_luogu_gpt_benben.py
+        run: Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-AK-CSP/all_classmate_csp_ak.py -OutFile all_classmate_csp_ak.py
       - name: 安装库文件
         run: pip install requests
       - name: 运行发犇
