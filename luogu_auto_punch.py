@@ -27,5 +27,5 @@ if __name__ == "__main__":
     pair = cookies.split('&')
     for x in pair:
         temp = x.split('|')
-        cookie = "__client_id=" + temp[0] + ";_uid=" + temp[1] + ";"
+        cookie = "__client_id=" + temp[1] + ";_uid=" + temp[0] + ";"
         punch(cookie)
