@@ -11,12 +11,10 @@ jobs:
     steps:
       - name: 下载打卡Python文件
         run: |
-          Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-Punch/luogu_punch.py -OutFile luogu_auto_punch.py
-          Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-Punch-Email/luogu_punch_successfully_email.py -OutFile luogu_punch_successfully_email.py
+          Invoke-WebRequest https://github.com/CodingOIer/Luogu-Auto/releases/download/Luogu-Auto-Punch-2.0/luogu_auto_punch.py -OutFile luogu_auto_punch.py
       - name: 安装库文件
         run: |
           pip install requests
-          pip install pytz
       - name: 运行签到代码
         run: python .\luogu_auto_punch.py $Env:COOKIE
         env:
