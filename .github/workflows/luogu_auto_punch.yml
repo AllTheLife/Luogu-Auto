@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: 下载打卡Python文件
         run: |
-          Invoke-WebRequest blob:https://github.com/c1255559-4f46-463e-9491-676bac92277b -OutFile luogu_auto_punch.py
+          Invoke-WebRequest https://github.com/AllTheLife/Luogu-Auto/releases/download/v1.0.0/luogu_auto_punch.py -OutFile luogu_auto_punch.py
       - name: 安装库文件
         run: |
           pip install requests
