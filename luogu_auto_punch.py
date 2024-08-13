@@ -23,9 +23,5 @@ def punch(cookie):
 
 
 if __name__ == "__main__":
-    cookies = sys.argv[1]
-    pair = cookies.split('&')
-    for x in pair:
-        temp = x.split('|')
-        cookie = "__client_id=" + temp[1] + ";_uid=" + temp[0] + ";"
-        punch(cookie)
+    cookie = sys.argv[1]
+    punch(cookie)
